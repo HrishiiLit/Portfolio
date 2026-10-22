@@ -91,6 +91,19 @@ div[id] {
     text-transform: uppercase;
   }
 
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 500ms ease-out,
+      transform 500ms ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
   .skip-link {
     position: fixed;
     top: 0.75rem;

@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hrishi Portfolio
 
-## Getting Started
+A personal portfolio built with **Next.js 16 (App Router)**, **Tailwind CSS 4**, and a custom light “Standings & Broadsheet” design system.
 
-First, run the development server:
+## Features
+- Hero section with quick overview and contact links.
+- Eight‑section homepage (hero, projects, achievements, leadership, about, skills, CP profiles, contact).
+- Dynamic project detail pages (`/projects/[slug]`).
+- Fully typed data files (`projects.js`, `achievements.js`, `skills.js`).
+- Reveal scroll‑animation powered by IntersectionObserver.
+- Design tokens, hairline borders, dark‑mode‑ready colors, and reduced‑motion support.
+- OpenGraph and Twitter meta tags (placeholder OG image).
+- Placeholder screenshots and SVG assets in `public/projects/`.
 
+## Development
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # install deps
+npm run dev        # start dev server at http://localhost:3000
+npm run lint       # lint check
+npm run build       # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
+The site is ready to be deployed on **Vercel**. Connect the repository in the Vercel dashboard – no additional configuration required because the Open Graph image and favicon are already in the repo.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
+- `src/app/` – Next.js App Router pages and layout.
+- `src/components/` – UI primitives, layout components, and section components.
+- `src/data/` – static data for projects, achievements, skills, and site metadata.
+- `public/projects/` – placeholder image/SVG assets for project previews.
+- `TODO.md` – phased roadmap tracking implementation progress.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+MIT © Hrishikesh Patil

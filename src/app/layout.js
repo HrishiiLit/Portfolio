@@ -49,7 +49,7 @@ export const metadata = {
     title: "Hrishikesh Patil — Developer & Competitive Programmer",
     description:
       "Third-year CS (AI) student at KLE Technological University. Developer, ICPC regional qualifier, President of Code Club.",
-    locale: "en_IN",
+    image: "/og.svg",
   },
   twitter: {
     card: "summary_large_image",
