@@ -1,5 +1,91 @@
 export const projects = [
   {
+    slug: "abuela",
+    name: "Abuela",
+    category: "Web application · Contribution",
+    summary:
+      "A recipe-sharing platform where every recipe carries its story. I contributed fixes to this team project, which is maintained upstream.",
+    cardSummary:
+      "Recipe-sharing platform built around the stories behind each dish — my contribution: recipe-creation and bug fixes merged upstream (team project, fork).",
+    status: { label: "Contribution · fork", tone: "neutral" },
+    ownership: "Contributor to a fork (original author: Tanvi Naik)",
+    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Auth.js"],
+    repo: "https://github.com/HrishiiLit/abuela",
+    demo: "https://abuela-psi.vercel.app",
+    preview: {
+      src: "/projects/abuela.svg",
+      alt: "Abuela landing page with the tagline every recipe has a story",
+    },
+    problem:
+      "Family recipes live in scattered notebooks and message threads. Abuela preserves each recipe together with the narrative behind the dish.",
+    users: "Home cooks who want to share and discover recipes with their stories.",
+    features: [
+      "Public recipe browsing, detail pages, and search.",
+      "Credentials authentication with JWT sessions (Auth.js v5).",
+      "Authenticated dashboard with recipe creation.",
+      "PostgreSQL persistence through Prisma, with seed data for sample recipes.",
+    ],
+    role:
+      "Contributor – 3 of 24 commits on the fork. Fixed the recipe-creation flow (merged upstream via pull request), added an environment configuration example, and resolved minor bugs. Primary authorship belongs to Tanvi Naik.",
+    decisions: [
+      {
+        title: "Contributions merged upstream",
+        body: "Rather than diverging, my recipe-creation fix was submitted as a pull request and merged into the original repository.",
+      },
+    ],
+    statusNote:
+      "Deployed and maintained in the upstream repository; my fork carries the same fixes.",
+  },
+  {
+    slug: "aops",
+    name: "Aviation Optimal Path System",
+    displayName: "AOPS",
+    category: "Algorithms · Backend",
+    summary:
+      "A flight-route finder built as a Design and Analysis of Algorithms course project: a C++ REST server that computes top-K and cheapest routes over an airport graph.",
+    cardSummary:
+      "Flight-route optimization over an airport graph — Yen's K-shortest paths and Bellman-Ford behind a C++ Crow REST server (DAA course project).",
+    status: { label: "Active · course project", tone: "neutral" },
+    ownership: "Team member (repository led by Vedant Khot)",
+    stack: ["C++17", "Crow", "CMake", "Docker", "HTML/CSS/JS"],
+    repo: "https://github.com/Vedant-Khot/DAA_project",
+    demo: "https://daa-project-kappa.vercel.app",
+    preview: {
+      src: "/projects/aops.svg",
+      alt: "AOPS flight booking dashboard showing available flights and comparison views",
+    },
+    problem:
+      "Finding good flight options means balancing cost, time, dates, and layovers across multi-hop routes — not just computing a single shortest path.",
+    users:
+      "Travellers searching multi-city routes; built for a Design and Analysis of Algorithms course deliverable.",
+    features: [
+      "Airport graph with flights as weighted edges (price and duration).",
+      "Top-K route search based on Yen's K-shortest-paths algorithm with visit-count pruning.",
+      "Cheapest-route search via Bellman-Ford relaxation as a cross-check on the optimal claim.",
+      "Date-aware filtering with multi-segment timelines, roundtrip support, and a comparison view.",
+      "REST endpoints including health checks and the source/destination search API.",
+      "JSON-backed custom database (JsonDB) and a static dashboard with search, flight comparison, and admin pages.",
+    ],
+    role:
+      "Team contributor – 22 of 68 commits. Implemented the search API and health/root endpoints, containerized the C++ server with a multi-stage Docker build, fixed Linux case-sensitivity and include-path issues, and handled Railway cloud deployment. Core graph algorithms and much of the server logic were led by repository owner Vedant Khot.",
+    decisions: [
+      {
+        title: "Yen's algorithm for real options",
+        body: "Travellers want a ranked set of routes, so the search returns the K best paths rather than a single answer.",
+      },
+      {
+        title: "Bellman-Ford as a cross-check",
+        body: "A second, more thorough algorithm verifies the cheapest-path claim instead of trusting one method.",
+      },
+      {
+        title: "C++ with JSON persistence",
+        body: "A Crow microframework server keeps route computation fast while a JSON store avoids database setup inside course scope.",
+      },
+    ],
+    statusNote:
+      "Active course project, presented in the repository as the Smart Flight Booking System. Live dashboard deployed; C++ API runs locally or via Docker.",
+  },
+  {
     slug: "test-case-generator",
     name: "Test Case Generator",
     category: "Developer tooling",
@@ -56,57 +142,6 @@ export const projects = [
       "Actively developed. The documentation roadmap lists the core framework and LLM-assisted specs as complete, with expanded graph strategies in progress.",
   },
   {
-    slug: "minishark",
-    name: "MiniShark",
-    category: "Systems · Network analysis",
-    summary:
-      "A Wireshark-style analyzer for PCAP/PCAPNG captures: packets are dissected into a protocol tree, grouped into five-tuple flows, and queried through a FastAPI service.",
-    cardSummary:
-      "Wireshark-style PCAP analysis: protocol dissection, five-tuple flow statistics, and a queryable FastAPI backend — a four-engine pipeline under active development.",
-    status: { label: "In development", tone: "neutral" },
-    ownership: "Repository owner & primary author",
-    stack: ["Python", "FastAPI", "dpkt", "SQLite", "pytest"],
-    repo: "https://github.com/HrishiiLit/Mini_Shark",
-    demo: null,
-    preview: {
-      src: "/projects/minishark-architecture.svg",
-      alt: "Architecture diagram of MiniShark: capture, dissection, flow analysis, and query engines feeding a FastAPI service with SQLite storage",
-      isDiagram: true,
-    },
-    problem:
-      "Understanding the contents of a packet capture normally means heavyweight tools or one-off scripts. The project needed a modular, testable analyzer built as a team codebase.",
-    users:
-      "Students and developers learning protocol analysis or debugging network behaviour.",
-    features: [
-      "Four engines isolated behind a shared data contract (frozen dataclasses: Packet, Layer, DecodedPacket, Flow).",
-      "E1 capture engine: streaming PCAP loading with strict length checks, plus PCAPNG via dpkt.",
-      "E2 dissection engine: protocol registry covering Ethernet, VLAN, ARP, IPv4, IPv6, TCP, UDP, ICMP, DNS, and HTTP.",
-      "E3 flow engine: normalized five-tuple grouping and per-protocol traffic statistics.",
-      "E4 query engine: SQLite storage and a parameterised filter language.",
-      "FastAPI HTTP routes and a one-call pipeline from upload through packets, protocol tree, flows, statistics, and query.",
-      "45 unit tests, with frames built programmatically in helpers instead of binary fixtures.",
-      "CI running pre-commit (ruff, black) and pytest on every push and pull request.",
-    ],
-    role:
-      "Repository owner and primary author — 39 of 41 commits. Listed in the README as the owner of E3 (flow correlation and traffic statistics) and author of the E4 starter, the analysis pipeline, and the HTTP routes that wire all engines together. Also maintain CI, documentation, and the cross-platform run script.",
-    decisions: [
-      {
-        title: "Engines talk through contracts only",
-        body: "Each engine depends solely on the shared dataclasses, so every phase can be built and tested in isolation.",
-      },
-      {
-        title: "Typed engine errors",
-        body: "Corrupt captures and filter mistakes raise specific error types instead of bare exceptions.",
-      },
-      {
-        title: "Tests build their own frames",
-        body: "Byte-level frame builders in the unit tests keep the repository free of binary fixtures while still exercising real dissectors.",
-      },
-    ],
-    statusNote:
-      "In development. Phase 1 (foundation, contracts, engine starters, HTTP routes) is tagged v0.1-phase1; deeper capture ingestion, protocol coverage, and the web interface remain on the roadmap.",
-  },
-  {
     slug: "caresync",
     name: "CareSync",
     category: "Healthcare platform",
@@ -136,7 +171,7 @@ export const projects = [
       "Graph-based workflow builder using React Flow with Dagre layout.",
     ],
     role:
-      "Team contributor — 11 of 14 commits. Implemented backend API endpoints and their implementations, built frontend pages and shared components, added lib utilities, and set up Docker configuration. Teammates: Sanskruti Agasgekar and Prajwal Baddi.",
+      "Team contributor – 11 of 14 commits. Implemented backend API endpoints and their implementations, built frontend pages and shared components, added lib utilities, and set up Docker configuration. Teammates: Sanskruti Agasgekar and Prajwal Baddi.",
     decisions: [
       {
         title: "Monorepo with a split backend",
@@ -149,92 +184,6 @@ export const projects = [
     ],
     statusNote:
       "Deployed on Vercel (MIT licensed). Development has been quiet since May 2026.",
-  },
-  {
-    slug: "aops",
-    name: "Aviation Optimal Path System",
-    displayName: "AOPS",
-    category: "Algorithms · Backend",
-    summary:
-      "A flight-route finder built as a Design and Analysis of Algorithms course project: a C++ REST server that computes top-K and cheapest routes over an airport graph.",
-    cardSummary:
-      "Flight-route optimization over an airport graph — Yen's K-shortest paths and Bellman-Ford behind a C++ Crow REST server (DAA course project).",
-    status: { label: "Active · course project", tone: "neutral" },
-    ownership: "Team member (repository led by Vedant Khot)",
-    stack: ["C++17", "Crow", "CMake", "Docker", "HTML/CSS/JS"],
-    repo: "https://github.com/Vedant-Khot/DAA_project",
-    demo: "https://daa-project-kappa.vercel.app",
-    preview: {
-      src: "/projects/aops.svg",
-      alt: "AOPS flight booking dashboard showing available flights and comparison views",
-    },
-    problem:
-      "Finding good flight options means balancing cost, time, dates, and layovers across multi-hop routes — not just computing a single shortest path.",
-    users:
-      "Travellers searching multi-city routes; built for a Design and Analysis of Algorithms course deliverable.",
-    features: [
-      "Airport graph with flights as weighted edges (price and duration).",
-      "Top-K route search based on Yen's K-shortest-paths algorithm with visit-count pruning.",
-      "Cheapest-route search via Bellman-Ford relaxation as a cross-check on the optimal claim.",
-      "Date-aware filtering with multi-segment timelines, roundtrip support, and a comparison view.",
-      "REST endpoints including health checks and the source/destination search API.",
-      "JSON-backed custom database (JsonDB) and a static dashboard with search, flight comparison, and admin pages.",
-    ],
-    role:
-      "Team contributor — 22 of 68 commits. Implemented the search API and health/root endpoints, containerized the C++ server with a multi-stage Docker build, fixed Linux case-sensitivity and include-path issues, and handled Railway cloud deployment. Core graph algorithms and much of the server logic were led by repository owner Vedant Khot.",
-    decisions: [
-      {
-        title: "Yen's algorithm for real options",
-        body: "Travellers want a ranked set of routes, so the search returns the K best paths rather than a single answer.",
-      },
-      {
-        title: "Bellman-Ford as a cross-check",
-        body: "A second, more thorough algorithm verifies the cheapest-path claim instead of trusting one method.",
-      },
-      {
-        title: "C++ with JSON persistence",
-        body: "A Crow microframework server keeps route computation fast while a JSON store avoids database setup inside course scope.",
-      },
-    ],
-    statusNote:
-      "Active course project, presented in the repository as the Smart Flight Booking System. Live dashboard deployed; C++ API runs locally or via Docker.",
-  },
-  {
-    slug: "abuela",
-    name: "Abuela",
-    category: "Web application · Contribution",
-    summary:
-      "A recipe-sharing platform where every recipe carries its story. I contributed fixes to this team project, which is maintained upstream.",
-    cardSummary:
-      "Recipe-sharing platform built around the stories behind each dish — my contribution: recipe-creation and bug fixes merged upstream (team project, fork).",
-    status: { label: "Contribution · fork", tone: "neutral" },
-    ownership: "Contributor to a fork (original author: Tanvi Naik)",
-    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Auth.js"],
-    repo: "https://github.com/HrishiiLit/abuela",
-    demo: "https://abuela-psi.vercel.app",
-    preview: {
-      src: "/projects/abuela.svg",
-      alt: "Abuela landing page with the tagline every recipe has a story",
-    },
-    problem:
-      "Family recipes live in scattered notebooks and message threads. Abuela preserves each recipe together with the narrative behind the dish.",
-    users: "Home cooks who want to share and discover recipes with their stories.",
-    features: [
-      "Public recipe browsing, detail pages, and search.",
-      "Credentials authentication with JWT sessions (Auth.js v5).",
-      "Authenticated dashboard with recipe creation.",
-      "PostgreSQL persistence through Prisma, with seed data for sample recipes.",
-    ],
-    role:
-      "Contributor — 3 of 24 commits on the fork. Fixed the recipe-creation flow (merged upstream via pull request), added an environment configuration example, and resolved minor bugs. Primary authorship belongs to Tanvi Naik.",
-    decisions: [
-      {
-        title: "Contributions merged upstream",
-        body: "Rather than diverging, my recipe-creation fix was submitted as a pull request and merged into the original repository.",
-      },
-    ],
-    statusNote:
-      "Deployed and maintained in the upstream repository; my fork carries the same fixes.",
   },
 ];
 

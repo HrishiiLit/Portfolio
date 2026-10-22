@@ -4,7 +4,7 @@ import { isExternalHref } from "@/lib/links";
 
 const variants = {
   primary:
-    "bg-ink text-paper border border-ink hover:bg-accent hover:border-accent hover:text-white",
+    "bg-accent text-on-accent border border-accent hover:bg-accent-strong hover:border-accent-strong",
   secondary:
     "bg-transparent text-ink border border-hairline-strong hover:border-accent-text hover:text-accent-text",
   ghostInk:
