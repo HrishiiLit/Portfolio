@@ -6,10 +6,16 @@ import ExternalLink from "@/components/ui/ExternalLink";
 import PreviewImage from "@/components/ui/PreviewImage";
 import Section from "@/components/ui/Section";
 import SectionHead from "@/components/ui/SectionHead";
-import { getProject } from "@/data/projects";
+import { getProject, projects } from "@/data/projects";
+export const instant = false;
 
-export default function ProjectDetail({ params }) {
-  const project = getProject(params.slug);
+export async function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
+}
+
+export default async function ProjectDetail({ params }) {
+  const { slug } = await params;
+  const project = getProject(slug);
   if (!project) {
     notFound();
     return null;

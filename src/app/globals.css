@@ -1,22 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Standings & Broadsheet palette */
-  --color-paper: #f6f5f1;
-  --color-surface: #ffffff;
-  --color-ink: #121317;
-  --color-ink-panel: #111318;
-  --color-body: #3c3f47;
-  --color-muted: #6e737e;
-  --color-hairline: #e4e1d9;
-  --color-hairline-strong: #d3cfc4;
-  --color-hairline-ink: #262a33;
-  --color-on-ink: #f2f1ed;
-  --color-muted-ink: #9aa0ac;
-  --color-accent: #d9401f;
-  --color-accent-text: #c4361c;
-  --color-accent-ink: #ff6a45;
-  --color-live: #0e7c66;
+  /* Obsidian & Antique Gold palette (dark mode) */
+  --color-paper: #0b0c10;
+  --color-surface: #1c1d21;
+  --color-ink: #f5f5f7;
+  --color-ink-panel: #14151a;
+  --color-body: #c5c6cc;
+  --color-muted: #8e8f96;
+  --color-hairline: #23242a;
+  --color-hairline-strong: #34353d;
+  --color-hairline-ink: #2a2b31;
+  --color-on-ink: #f5f5f7;
+  --color-muted-ink: #a6a8b0;
+  --color-accent: #d4af37;
+  --color-accent-strong: #f3e5ab;
+  --color-on-accent: #0b0c10;
+  --color-accent-text: #d4af37;
+  --color-accent-ink: #f3e5ab;
+  --color-gold: #f3e5ab;
+  --color-glow: #3d3113;
+  --color-glow-deep: #201b0d;
+  --color-rose: #6e5b22;
+  --color-rose-tint: #241f10;
+  --color-sage: #9caf88;
+  --color-sage-tint: #15170f;
+  --color-live: #9caf88;
 
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui,
     sans-serif;
@@ -64,7 +73,7 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: #ffffff;
+  color: var(--color-on-accent);
 }
 
 :focus-visible {
