@@ -65,47 +65,61 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="on-ink border border-hairline-ink bg-ink-panel p-6 sm:p-8">
-            <p className="eyebrow flex items-center justify-between text-muted-ink">
-              <span>At a glance</span>
-              <span aria-hidden="true" className="text-accent-ink">
-                ／
+          <div className="on-ink overflow-hidden border border-hairline-ink bg-ink-panel">
+            <div className="relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-glow via-glow-deep to-paper">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-3 border border-gold/25"
+              />
+              <span className="font-display text-7xl font-bold tracking-tight text-accent sm:text-8xl">
+                HP
               </span>
-            </p>
-            <dl className="mt-6">
-              {standings.map((row) => (
-                <div
-                  key={row.label}
-                  className="flex flex-col gap-1 border-t border-hairline-ink py-4 first:border-t-0 first:pt-0 sm:flex-row sm:items-baseline sm:gap-6"
+              <p className="absolute bottom-3 right-4 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted-ink">
+                Portrait placeholder
+              </p>
+            </div>
+            <div className="p-6 sm:p-8">
+              <p className="eyebrow flex items-center justify-between text-muted-ink">
+                <span>At a glance</span>
+                <span aria-hidden="true" className="text-accent-ink">
+                  ／
+                </span>
+              </p>
+              <dl className="mt-5">
+                {standings.map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex flex-col gap-1 border-t border-hairline-ink py-3.5 first:border-t-0 first:pt-0 sm:flex-row sm:items-baseline sm:gap-6"
+                  >
+                    <dt className="w-28 shrink-0 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-accent-ink">
+                      {row.label}
+                    </dt>
+                    <dd className="text-[0.95rem] leading-snug text-on-ink">
+                      {row.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t border-hairline-ink pt-5 font-mono text-[0.72rem] uppercase tracking-[0.14em]">
+                <ExternalLink
+                  href={profile.github}
+                  className="text-muted-ink transition-colors duration-150 hover:text-accent-ink"
                 >
-                  <dt className="w-28 shrink-0 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted-ink">
-                    {row.label}
-                  </dt>
-                  <dd className="text-[0.95rem] leading-snug text-on-ink">
-                    {row.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-hairline-ink pt-5 font-mono text-[0.72rem] uppercase tracking-[0.14em]">
-              <ExternalLink
-                href={profile.github}
-                className="text-muted-ink transition-colors duration-150 hover:text-accent-ink"
-              >
-                GitHub
-              </ExternalLink>
-              <ExternalLink
-                href={profile.codeforces}
-                className="text-muted-ink transition-colors duration-150 hover:text-accent-ink"
-              >
-                Codeforces
-              </ExternalLink>
-              <ExternalLink
-                href={profile.linkedin}
-                className="text-muted-ink transition-colors duration-150 hover:text-accent-ink"
-              >
-                LinkedIn
-              </ExternalLink>
+                  GitHub
+                </ExternalLink>
+                <ExternalLink
+                  href={profile.codeforces}
+                  className="text-muted-ink transition-colors duration-150 hover:text-accent-ink"
+                >
+                  Codeforces
+                </ExternalLink>
+                <ExternalLink
+                  href={profile.linkedin}
+                  className="text-muted-ink transition-colors duration-150 hover:text-accent-ink"
+                >
+                  LinkedIn
+                </ExternalLink>
+              </div>
             </div>
           </div>
         </Reveal>

@@ -3,7 +3,7 @@ const tones = {
   ink: "border-hairline-ink text-muted-ink bg-transparent",
   live: "border-hairline-strong text-live bg-transparent",
   accent: "border-accent/40 text-accent-text bg-transparent",
-  solidAccent: "border-accent bg-accent text-white",
+  solidAccent: "border-accent bg-accent text-on-accent",
 };
 
 export default function Badge({
